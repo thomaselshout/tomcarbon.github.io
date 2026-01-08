@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tom Carbon — Expedition Nordakar</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #f6f4ef;
-      --text: #1f1f1f;
-      --muted: #6b6b6b;
-      --accent: #c94a2f; /* subtle warming-stripe highlight */
+      --bg-light: #F4EDE4;
+      --bg-dark: #0E2433;
+      --accent: #C39A6B;
+      --text-dark: #0E2433;
+      --text-muted: #6B7280;
+      --card-radius: 22px;
     }
 
     * {
@@ -19,93 +24,161 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       line-height: 1.6;
     }
 
-    header {
-      min-height: 100vh;
-      background: url("hero.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: flex-end;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 56px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    nav a {
+      margin: 0 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .cta {
+      background: var(--accent);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    /* Hero */
     .hero {
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0)
-      );
-      padding: 3rem;
-      width: 100%;
-      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: 80px 56px;
+      align-items: center;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin: 0;
-      letter-spacing: 0.02em;
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 24px;
     }
 
     .hero p {
-      max-width: 520px;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #eaeaea;
+      color: var(--text-muted);
+      max-width: 420px;
     }
 
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
     }
 
-    section {
-      margin-bottom: 4rem;
+    .btn-secondary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.05);
+      font-size: 14px;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+    /* Cards */
+    .cards {
+      padding: 40px 56px 80px;
     }
 
-    .stripe {
-      height: 4px;
-      width: 120px;
-      background: linear-gradient(
-        90deg,
-        #2c7bb6,
-        #abd9e9,
-        #ffffbf,
-        #fdae61,
-        #d7191c
-      );
-      margin: 1.5rem 0;
-    }
-
-    .links a {
-      display: block;
-      margin: 0.75rem 0;
-      font-size: 1.1rem;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.25rem;
-    }
-
-    .links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    footer {
+    .cards h2 {
       text-align: center;
-      padding: 3rem 1.5rem;
-      color: var(--muted);
-      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cards h3 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 48px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #E8E1D6;
+      border-radius: var(--card-radius);
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color: white;
+      padding: 64px 56px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+    }
+
+    .subscribe {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    .subscribe input {
+      flex: 1;
+      padding: 14px;
+      border-radius: 999px 0 0 999px;
+      border: none;
+    }
+
+    .subscribe button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 0 999px 999px 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -113,54 +186,70 @@
 <body>
 
 <header>
-  <div class="hero">
-    <h1>Tom Carbon</h1>
-    <p>
-      Expedition Nordakar — cycling from Nordkapp to Dakar,
-      collecting human stories about climate, travel,
-      and sustainable ways of living.
-    </p>
+  <div class="logo">
+    ✦ Tom Carbon
   </div>
+  <nav>
+    <a href="#">Journeys</a>
+    <a href="#">Stories</a>
+    <a href="#">About</a>
+    <a href="#" class="cta">Start reading</a>
+  </nav>
 </header>
 
-<main>
-
-  <section>
-    <h2>The journey</h2>
-    <div class="stripe"></div>
+<section class="hero">
+  <div>
+    <h1>Journeys told<br/>through the lens</h1>
     <p>
-      Nordakar is a long-distance bicycle expedition from the
-      northernmost point of Europe to West Africa.
-      Moving slowly, listening carefully, and sharing
-      small, hopeful stories along the way.
+      Welcome to a space for slow journeys, honest encounters,
+      and the quiet beauty of the road.
     </p>
-  </section>
-
-  <section>
-    <h2>Follow the expedition</h2>
-    <div class="stripe"></div>
-    <div class="links">
-      <a href="https://notion.site/YOUR-NOTION-JOURNEY-PAGE"
-         target="_blank" rel="noopener">
-        → Read the stories (Notion)
-      </a>
-
-      <a href="https://www.instagram.com/YOURPROFILE"
-         target="_blank" rel="noopener">
-        → Daily updates on Instagram
-      </a>
-
-      <a href="https://www.youtube.com/YOURCHANNEL"
-         target="_blank" rel="noopener">
-        → Films & longer stories on YouTube
-      </a>
+    <div class="hero-buttons">
+      <a class="cta" href="#">Explore</a>
+      <a class="btn-secondary" href="#">Gallery</a>
     </div>
-  </section>
+  </div>
+  <div style="background:#BFD6C9; border-radius:28px; aspect-ratio: 4 / 3;"></div>
+</section>
 
-</main>
+<section class="cards">
+  <h2>FOUR MOMENTS, ONE JOURNEY</h2>
+  <h3>Travel stories in every frame</h3>
+
+  <div class="card-grid">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </div>
+</section>
 
 <footer>
-  © Tom Carbon — Slow travel by bicycle
+  <div class="footer-grid">
+    <div>
+      <strong>TOM CARBON</strong>
+      <p>Subscribe for new journeys and stories.</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Your email"/>
+        <button>Subscribe</button>
+      </div>
+    </div>
+
+    <div>
+      <strong>Explore</strong><br/>
+      Stories<br/>Journey<br/>Map<br/>Gallery
+    </div>
+
+    <div>
+      <strong>Info</strong><br/>
+      Contact<br/>Press<br/>FAQ
+    </div>
+
+    <div>
+      <strong>Connect</strong><br/>
+      Instagram<br/>YouTube<br/>LinkedIn
+    </div>
+  </div>
 </footer>
 
 </body>
