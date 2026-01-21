@@ -62,6 +62,24 @@
       font-size: 15px;
     }
 
+    .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
     nav {
       display: flex;
       gap: 32px;
@@ -256,8 +274,11 @@
   <div class="header-inner">
 
     <div class="logo">
-      ✦ Tom Carbon
-    </div>
+  <img src="/logo/logo-128.png"
+       alt="Tom Carbon logo"
+       class="logo-image">
+  <span class="logo-text">Tom Carbon</span>
+</div>
 
     <nav class="main-nav" id="mainNav">
       <a href="#journeys">Journeys</a>
