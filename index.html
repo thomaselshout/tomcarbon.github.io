@@ -310,15 +310,15 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
   <div class="header-inner">
 
     <div class="logo">
-  <img src="/logo/logo-128.png"
-       alt="Tom Carbon logo"
-       class="logo-image">
-  <span class="logo-text">Tom Carbon</span>
-</div>
+      <img src="/logo/logo-128.png" alt="Tom Carbon logo" class="logo-image">
+      <span class="logo-text">Tom Carbon</span>
+    </div>
 
     <nav class="main-nav" id="mainNav">
       <a href="#journeys">Journeys</a>
@@ -334,64 +334,121 @@
         <img src="/assets/icons/substack.png" alt="Substack">
       </a>
     </div>
-<button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
-  ☰
-</button>
+
+    <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
+      ☰
+    </button>
+
   </div>
 </header>
 
-<section class="hero" id="journeys">
-  <div class="hero-content">
-    <h1>Expedition Nordakar</h1>
+<!-- ================= INTRO ================= -->
 
-    <div class="hero-tagline">
-      A long-distance bicycle journey across the continent.
-    </div>
+<section class="hero" id="intro">
+  <div class="hero-content">
+    <h1>Hello, I’m Tom Carbon</h1>
 
     <p class="hero-description">
-      I’m cycling from the Arctic to West Africa, collecting small stories
-      from the people I meet along the way. This is a journey shaped by food,
-      habits and the hopes we share.
+      I travel by bicycle, because it’s the only pace that lets me truly arrive.
+      At this pace, landscapes, cuisines, and conversations have time to reveal themselves.
+      I ride to learn new recipes, observe simple outdoor ways of living,
+      and follow curiosity wherever it leads — even across a continent.
     </p>
 
     <div class="hero-buttons">
-      <a
-        href="https://substack.com/@tomcarbon"
-        target="_blank"
-        rel="noopener"
-        class="cta"
-      >
-        Explore
-      </a>
-
-      <a
-        href="https://instagram.com/tomcarbon_"
-        target="_blank"
-        rel="noopener"
-        class="btn-secondary"
-      >
-        Gallery
+      <a href="#about" class="btn-secondary">
+        About me
       </a>
     </div>
   </div>
 
+  <!-- Replace this with your portrait image -->
   <div class="hero-visual"></div>
 </section>
 
+<!-- ================= JOURNEYS ================= -->
 
-<section class="cards">
-  <h2>FOUR MOMENTS, ONE JOURNEY</h2>
-  <h3>Travel stories in every frame</h3>
+<section class="cards" id="journeys">
 
-  <div class="card-grid">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+  <!-- Section opener -->
+  <h2>CURRENT JOURNEY</h2>
+  <h3>Expedition Nordakar</h3>
+
+  <!-- Journey concept block -->
+  <section class="hero" style="padding-top: 40px;">
+    <div class="hero-content">
+      <h1>From the Arctic to West Africa</h1>
+
+      <p class="hero-description">
+        Expedition Nordakar is a long-distance bicycle journey from Nordkapp to Dakar,
+        guided by encounters with people, food cultures, and everyday habits
+        that reveal how we live with nature and with each other.
+      </p>
+    </div>
+
+    <!-- Route / journey image -->
+    <div class="hero-visual"></div>
+  </section>
+
+  <!-- Journey philosophy block -->
+  <section class="hero" style="padding-top: 0;">
+    <div class="hero-content">
+      <h1>Food, habits, hope</h1>
+
+      <p class="hero-description">
+        Along the road, I collect small stories — shared meals, daily routines,
+        and simple ideas that offer a sense of togetherness and hope
+        in a changing climate.
+      </p>
+    </div>
+
+    <div class="hero-visual"></div>
+  </section>
+
+  <!-- Journey CTAs -->
+  <div class="hero-buttons" style="justify-content: center; margin-top: 40px;">
+    <a
+      href="https://substack.com/@tomcarbon"
+      target="_blank"
+      rel="noopener"
+      class="cta"
+    >
+      Explore the journey
+    </a>
+
+    <a
+      href="https://instagram.com/tomcarbon_"
+      target="_blank"
+      rel="noopener"
+      class="btn-secondary"
+    >
+      Follow on the road
+    </a>
   </div>
+
 </section>
 
-<footer id="about">
+<!-- ================= ABOUT ME ================= -->
+
+<section class="hero" id="about">
+  <div class="hero-content">
+    <h1>About me</h1>
+
+    <p class="hero-description">
+      I’m a cyclist, observer, and storyteller with a love for outdoor life,
+      local cultures, and the small choices that shape how we live.
+      Through slow travel, I explore how food, habits, and human curiosity
+      connect us across landscapes.
+    </p>
+  </div>
+
+  <!-- About portrait / candid image -->
+  <div class="hero-visual"></div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
   <div class="footer-grid">
     <div>
       <strong>TOM CARBON</strong>
@@ -426,4 +483,5 @@
 </script>
 
 </body>
+
 </html>
