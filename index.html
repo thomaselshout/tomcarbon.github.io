@@ -49,25 +49,25 @@
     .section-opener {
       display: flex;
       align-items: center;
-      justify-content: center; 
-      gap: 12px;
-      margin-bottom: 32px;
-      text-align: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .section-opener h2 {
       margin: 0;
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       font-size: 13px;
       color: var(--text-muted);
     }
 
-    .section-logo {
-      height: 14px;
-      width: auto;
-      opacity: 0.7;
-    }
+.section-logo {
+  height: 14px;
+  width: auto;
+  display: block;
+}
+
 
 
     /* ================= HEADER ================= */
@@ -163,11 +163,29 @@
       align-items: center;
     }
 
-    .hero h1 {
+     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: 56px;
       line-height: 1.1;
-      margin-bottom: 16px;
+      margin: 8px 0 12px;
+    }
+
+    
+    .hero-eyebrow {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-deck {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 520px;
     }
 
     .hero-tagline {
@@ -179,7 +197,9 @@
 
     .hero-description {
       color: var(--text-muted);
-      max-width: 460px;
+      max-width: 520px;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
     .hero-visual {
@@ -331,8 +351,16 @@
     }
 
     /* ================= RESPONSIVE ================= */
-
+    
     @media (max-width: 900px) {
+        .hero-title {
+          font-size: 42px;
+      }
+
+        .hero-deck {
+          font-size: 16px;
+      }
+      
       .hero {
         grid-template-columns: 1fr;
       }
@@ -410,10 +438,10 @@
 
 <section class="hero" id="intro">
   <div class="hero-content">
-    <h1>
-  Hello, I’m Tom
-  <span class="wave" aria-hidden="true">👋</span>
-</h1>
+    <h1 class="hero-title">
+      Hello, I’m Tom
+      <span class="wave" aria-hidden="true">👋</span>
+    </h1>
 
     <p class="hero-description">
       I travel by bicycle, because it’s the only pace that lets me truly arrive.
@@ -429,7 +457,6 @@
     </div>
   </div>
 
-  <!-- Replace this with your portrait image -->
   <div class="hero-visual"></div>
 </section>
 
@@ -437,18 +464,25 @@
 
 <section class="cards" id="journeys">
 
- <!-- Section opener -->
-<div class="section-opener">
-  <img src="/logo/logo-16.png" alt="" aria-hidden="true" class="section-logo">
-  <h2>CURRENT JOURNEY</h2>
-</div>
+  <!-- Section opener -->
+  <div class="section-opener">
+    <img src="/logo/logo-16.png" alt="" aria-hidden="true" class="section-logo">
+    <h2>CURRENT JOURNEY</h2>
+  </div>
 
+  <!-- Main journey title -->
   <h3>Expedition Nordakar</h3>
 
   <!-- Journey concept block -->
   <section class="hero" style="padding-top: 40px;">
     <div class="hero-content">
-      <h1>From the Arctic to West Africa</h1>
+      <span class="hero-eyebrow">From the Arctic to West Africa</span>
+
+      <h1 class="hero-title">Expedition Nordakar</h1>
+
+      <p class="hero-deck">
+        A long-distance bicycle journey across the continent.
+      </p>
 
       <p class="hero-description">
         Expedition Nordakar is a long-distance bicycle journey from Nordkapp to Dakar,
@@ -457,14 +491,15 @@
       </p>
     </div>
 
-    <!-- Route / journey image -->
     <div class="hero-visual"></div>
   </section>
 
   <!-- Journey philosophy block -->
   <section class="hero" style="padding-top: 0;">
     <div class="hero-content">
-      <h1>Food, habits, hope</h1>
+      <span class="hero-eyebrow">On the road</span>
+
+      <h1 class="hero-title">Food, habits, hope</h1>
 
       <p class="hero-description">
         Along the road, I collect small stories — shared meals, daily routines,
@@ -484,7 +519,7 @@
       rel="noopener"
       class="cta"
     >
-      Explore the journey
+      Read along
     </a>
 
     <a
@@ -493,7 +528,7 @@
       rel="noopener"
       class="btn-secondary"
     >
-      Follow on the road
+      View the photos
     </a>
   </div>
 
@@ -503,7 +538,9 @@
 
 <section class="hero" id="about">
   <div class="hero-content">
-    <h1>About me</h1>
+    <span class="hero-eyebrow">About</span>
+
+    <h1 class="hero-title">Tom Carbon</h1>
 
     <p class="hero-description">
       I’m a cyclist, observer, and storyteller with a love for outdoor life,
@@ -513,7 +550,6 @@
     </p>
   </div>
 
-  <!-- About portrait / candid image -->
   <div class="hero-visual"></div>
 </section>
 
