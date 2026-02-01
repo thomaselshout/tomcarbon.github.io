@@ -353,26 +353,33 @@
 <body>
 
 <header>
+ <header class="site-header">
   <div class="header-inner">
-    <div class="logo">
-      <img src="/logo/logo-128.png" class="logo-image" alt="">
-      Tom Carbon
-    </div>
-    <nav>
+
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="/logo/logo-40.png" alt="Tom Carbon logo">
+    </a>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
       <a href="#journeys">Journeys</a>
-      <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
       <a href="#about">About</a>
+      <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
     </nav>
-    <div class="social">
-      <a href="https://instagram.com/tomcarbon_" target="_blank"><img src="/assets/icons/instagram.png"></a>
-      <a href="https://substack.com/@tomcarbon" target="_blank"><img src="/assets/icons/substack.png"></a>
-    </div>
-      <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
+
+    <!-- Burger menu (mobile only) -->
+    <button
+      class="menu-toggle"
+      aria-label="Open menu"
+      onclick="toggleMenu()"
+    >
       ☰
-      </button>
+    </button>
+
   </div>
 </header>
-  </div>
+
 </header>
 
 <!-- INTRO -->
