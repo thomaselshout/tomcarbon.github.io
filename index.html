@@ -121,28 +121,43 @@
       color: var(--text-dark);
     }
 
-    @media (max-width: 900px) {
-    .menu-toggle {
-      display: block;
-    }
+   /* ---------- Mobile / Tablet Navigation ---------- */
 
-    nav.main-nav {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--bg-light);
-      display: none;
-      flex-direction: column;
-      gap: 24px;
-      padding: 32px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-dark);
+  z-index: 200;
+}
 
-    nav.main-nav.open {
-      display: flex;
-    }
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
   }
+
+  nav.main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-light);
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 150;
+  }
+
+  nav.main-nav.open {
+    display: flex;
+  }
+}
+
+
 
 
     /* ---------- Typography ---------- */
@@ -540,6 +555,10 @@
     </div>
   </div>
 </footer>
-
+<script>
+  function toggleMenu() {
+    document.getElementById("mainNav").classList.toggle("open");
+  }
+</script>
 </body>
 </html>
