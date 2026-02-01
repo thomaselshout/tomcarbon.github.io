@@ -215,6 +215,73 @@
     .section-logo {
       height: 14px;
     }
+    /* ---------- Footer ---------- */
+
+    .site-footer {
+      background: var(--bg-dark);
+      color: white;
+      padding: 80px 0;
+      width: 100%;
+    }
+
+    .site-footer p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+    }
+
+    .site-footer strong {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: white;
+    }
+
+    .site-footer a {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.3);
+      text-underline-offset: 3px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .site-footer a:hover {
+      color: white;
+      text-decoration-color: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .footer-logo {
+      width: 40px;
+      height: auto;
+      margin-top: 2px;
+      opacity: 0.9;
+    }
+
+    .muted {
+      opacity: 0.5;
+    }
+
+/* ---------- Footer responsive ---------- */
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 
     /* ---------- Responsive ---------- */
 
@@ -366,6 +433,47 @@
 
   </div>
 </section>
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand block -->
+      <div class="footer-brand">
+        <img src="/logo/logo-40.png" alt="Tom Carbon logo" class="footer-logo">
+        <div>
+          <strong>TOM CARBON</strong>
+          <p>Follow along via Substack or Instagram.</p>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <strong>Explore</strong><br/>
+        <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">Stories</a><br/>
+        <a href="#journeys">Journeys</a><br/>
+        <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Photos</a>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <strong>Info</strong><br/>
+        <a href="#about">About</a><br/>
+        <span class="muted">Contact</span>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <strong>Connect</strong><br/>
+        <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">Substack</a><br/>
+        <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Instagram</a><br/>
+        <a href="https://www.youtube.com/@cyclingthom" target="_blank" rel="noopener">YouTube</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
