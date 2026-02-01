@@ -109,6 +109,41 @@
       width: 18px;
       opacity: 0.7;
     }
+   
+    /* ---------- Mobile / Tablet Navigation ---------- */
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    @media (max-width: 900px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    nav.main-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg-light);
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    nav.main-nav.open {
+      display: flex;
+    }
+  }
+
 
     /* ---------- Typography ---------- */
 
@@ -317,6 +352,11 @@
       <a href="https://instagram.com/tomcarbon_" target="_blank"><img src="/assets/icons/instagram.png"></a>
       <a href="https://substack.com/@tomcarbon" target="_blank"><img src="/assets/icons/substack.png"></a>
     </div>
+      <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
+      ☰
+      </button>
+  </div>
+</header>
   </div>
 </header>
 
