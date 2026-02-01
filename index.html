@@ -4,15 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tom Carbon — Expedition Nordakar</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="/logo/logo-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/logo/logo-16.png">
-<link rel="apple-touch-icon" href="/logo/logo-16.png">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/logo/logo-16.png">
+  <link rel="apple-touch-icon" href="/logo/logo-16.png">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fonts (merged) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
-
 
   <style>
     :root {
@@ -21,107 +18,81 @@
       --accent: #C39A6B;
       --text-dark: #0E2433;
       --text-muted: #6B7280;
-      --card-radius: 22px;
+      --radius-lg: 28px;
+      --content-padding: 56px;
+      --max-width: 1280px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
+      background: var(--bg-light);
       color: var(--text-dark);
       line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Layout primitives ---------- */
+
+    .section {
+      padding: 80px 0;
     }
 
-    .wave {
-      margin-left: 8px;
-      font-size: 0.9em;
-      display: inline-block;
-      transform: translateY(-2px);
+    .section.pt-0 { padding-top: 0; }
+    .section.pt-md { padding-top: 40px; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
     }
-    
-    .section-opener {
-      display: flex;
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 24px;
     }
 
-     .section-opener h2 {
-        font-family: 'Fraunces', serif;
-        font-weight: 500;
-        font-size: 13px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        margin: 0;
+    .centered {
+      text-align: center;
     }
 
-
-.section-logo {
-  height: 14px;
-  width: auto;
-  display: block;
-}
-
-    /* ================= HEADER ================= */
+    /* ---------- Header ---------- */
 
     header {
       position: sticky;
       top: 0;
       background: var(--bg-light);
-      z-index: 100;
       border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 100;
     }
 
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 56px;
-      max-width: 1280px;
+      max-width: var(--max-width);
       margin: 0 auto;
+      padding: 24px var(--content-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 500;
       font-size: 15px;
+      font-weight: 500;
     }
 
-    .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-image {
-  height: 22px;
-  width: auto;
-  display: block;
-}
-
-.logo-text {
-  font-weight: 500;
-  font-size: 15px;
-}
-
+    .logo-image { height: 22px; }
 
     nav {
       display: flex;
       gap: 32px;
-      align-items: center;
     }
 
     nav a {
@@ -132,590 +103,269 @@
     .social {
       display: flex;
       gap: 16px;
-      align-items: center;
     }
 
     .social img {
       width: 18px;
-      height: 18px;
-      display: block;
       opacity: 0.7;
-      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
-    .social a:hover img {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
+    /* ---------- Typography ---------- */
 
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      padding: 80px 56px;
-      align-items: center;
-    }
-    
-    .hero h1 {
+    h1 {
       font-family: 'Fraunces', serif;
-      font-size: 52px;
-      font-weight: 500;
-    }
-
-     .hero-title {
-      font-family: 'Playfair Display', serif;
       font-size: 56px;
+      font-weight: 500;
       line-height: 1.1;
-      margin: 8px 0 12px;
+      margin: 0 0 16px;
     }
 
-    
+    .intro-subtitle {
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
     .hero-eyebrow {
-      display: block;
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      display: block;
     }
 
     .hero-deck {
       font-size: 18px;
-      font-weight: 400;
       color: var(--text-muted);
       margin-bottom: 20px;
-      max-width: 520px;
     }
 
-    .hero-tagline {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    
-     .intro-title {
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
-      font-size: 56px;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-     .intro-subtitle {
-      display: block;
-      margin-top: 12px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
-    }
-
-    .hero-description {
-      color: var(--text-muted);
-      max-width: 520px;
+    .text {
       font-size: 15px;
-      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 520px;
     }
 
-    .hero-description + .hero-description {
-      margin-top: 0.5em;
-    }
+    .text + .text { margin-top: 0.6em; }
 
-   .hero-visual {
+    /* ---------- Visual ---------- */
+
+    .visual {
       background: #E0D7CB;
-      border-radius: 28px;
+      border-radius: var(--radius-lg);
       aspect-ratio: 4 / 3;
       overflow: hidden;
     }
 
-  .hero-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* ================= HERO BUTTONS ================= */
+    /* ---------- Buttons ---------- */
 
-.hero-buttons {
-  margin-top: 32px;
-  display: flex;
-  gap: 16px;
-}
-
-.cta {
-  background: var(--accent);
-  color: white;
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-.cta:hover {
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--text-dark);
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-.btn-secondary:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-    /* ================= CARDS ================= */
-
-    .cards {
-      padding: 40px 56px 80px;
-    }
-
-    .cards h2 {
-      text-align: center;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .cards h3 {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      margin-bottom: 48px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: #E8E1D6;
-      border-radius: var(--card-radius);
-      aspect-ratio: 1 / 1;
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer {
-      background: var(--bg-dark);
-      color: white;
-      padding: 64px 56px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-    }
-
-    footer p {
-      color: rgba(255,255,255,0.7);
-      font-size: 14px;
-    }
-    footer strong {
-      display: inline-block;
-      margin-bottom: 12px;
-      font-size: 14px;
-      color: white;
-    }
-
-    footer a {
-      color: rgba(255,255,255,0.6);
-      font-size: 14px;
-      text-decoration: underline;
-      text-decoration-color: rgba(255,255,255,0.3);
-      text-underline-offset: 3px;
-    }
-
-    footer a {
-      display: inline-block;
-      margin-bottom: 6px;
-    }
-
-    footer a:hover {
-      color: white;
-      text-decoration-color: white;
-    }
-    
-    .footer-brand {
+    .button-row {
       display: flex;
-      align-items: flex-start; /* align to top of text */
-      gap: 14px;
+      gap: 16px;
+      margin-top: 32px;
     }
 
-    .footer-logo {
-      width: 40px;
-      height: auto;
-      margin-top: 2px; /* fine-tune to align with TOM CARBON */
-      opacity: 0.9;
+    .button-row.centered {
+      justify-content: center;
     }
 
-
-    .subscribe input {
-      flex: 1;
-      padding: 14px;
-      border-radius: 999px 0 0 999px;
-      border: none;
-    }
-
-    .subscribe button {
+    .cta {
       background: var(--accent);
-      border: none;
       color: white;
-      padding: 14px 24px;
-      border-radius: 0 999px 999px 0;
-      cursor: pointer;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    /* ================= RESPONSIVE ================= */
-    
+    .btn-secondary {
+      background: rgba(0,0,0,0.06);
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ---------- Section opener ---------- */
+
+    .section-opener {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .section-opener h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .section-logo {
+      height: 14px;
+    }
+
+    /* ---------- Responsive ---------- */
+
     @media (max-width: 900px) {
-        .hero-title {
-          font-size: 42px;
-      }
+      :root { --content-padding: 24px; }
 
-        .hero-deck {
-          font-size: 16px;
-      }
-      
-      .hero {
+      .split {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
 
-      .card-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      h1 { font-size: 42px; }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-light);
-        flex-direction: column;
-        gap: 24px;
-        padding: 32px;
-        display: none;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .social {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
+      nav, .social { display: none; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
   <div class="header-inner">
-
     <div class="logo">
-      <img src="/logo/logo-128.png" alt="Tom Carbon logo" class="logo-image">
-      <span class="logo-text">Tom Carbon</span>
+      <img src="/logo/logo-128.png" class="logo-image" alt="">
+      Tom Carbon
     </div>
-
-    <nav class="main-nav" id="mainNav">
+    <nav>
       <a href="#journeys">Journeys</a>
       <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
       <a href="#about">About</a>
     </nav>
-
     <div class="social">
-      <a href="https://instagram.com/tomcarbon_" target="_blank" aria-label="Instagram">
-        <img src="/assets/icons/instagram.png" alt="Instagram">
-      </a>
-      <a href="https://substack.com/@tomcarbon" target="_blank" aria-label="Substack">
-        <img src="/assets/icons/substack.png" alt="Substack">
-      </a>
+      <a href="https://instagram.com/tomcarbon_" target="_blank"><img src="/assets/icons/instagram.png"></a>
+      <a href="https://substack.com/@tomcarbon" target="_blank"><img src="/assets/icons/substack.png"></a>
     </div>
-
-    <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
-      ☰
-    </button>
-
   </div>
 </header>
 
-<!-- ================= INTRO ================= -->
+<!-- INTRO -->
+<section class="section" id="intro">
+  <div class="container split">
+    <div>
+      <h1>Hello, I’m Tom 👋</h1>
+      <p class="intro-subtitle">Nice to meet you</p>
 
-<section class="hero" id="intro">
-  <div class="hero-content">
+      <p class="text">I travel slowly for food and adventure.</p>
 
-    <h1>
-      Hello, I’m Tom
-      <span class="wave" aria-hidden="true">👋</span>
-    </h1>
-
-    <p class="intro-subtitle">Nice to meet you</p>
-
-    <p class="hero-description">
-     I travel slowly for food and adventure.
-    </p>
-      
-    <p class="hero-description">  
-      The bicycle is my favorite way to get around. It’s just fast enough to go far, and just 
-      slow enough to really notice landscapes, outdoor lives and the small details of daily 
-      routines. I’m curious about how people live with nature, how habits shape culture, 
-      and -most of all— about local food, family recipes, and the stories people love to tell 
-      about them.
-    </p>
-
-    <p class="hero-description">
-     I follow curiosity wherever it leads, even when that means crossing a continent!
-    </p>
-  </div>
-    <div class="hero-visual">
-  <img
-    src="/assets/images/Hero-image.jpg"
-    alt="Tom Carbon"
-    loading="lazy">
-    </div>
-
-<!-- Journey CTAs -->
-  <div class="hero-buttons" style="justify-content: center; margin-top: 40px;">
-    <a
-      href="#journeys"
-      rel="noopener"
-      class="cta"
-    >
-      Journeys
-    </a>
-
-    <a
-      href="#about"
-      rel="noopener"
-      class="btn-secondary"
-    >
-      About me
-    </a>
-  </div>
-
-</section>
-  
-<!-- ================= JOURNEYS ================= -->
-
-<section class="cards" id="journeys">
-
-  <!-- Section opener -->
-    <div class="section-opener">
-    <img src="/logo/logo-16.png" alt="" aria-hidden="true" class="section-logo">
-    <h2>CURRENT JOURNEY</h2>
-  </div>
-
-  <!-- Main journey title -->
-
-  <!-- Journey concept block -->
-  <section class="hero" style="padding-top: 40px;">
-    <div class="hero-content">
-      <span class="hero-eyebrow">From the Arctic to West Africa</span>
-
-      <h1 class="hero-title">Expedition Nordakar</h1>
-
-      <p class="hero-deck">
-        A long-distance bicycle journey across the continent.
+      <p class="text">
+        The bicycle is my favorite way to get around. It’s just fast enough to go far, and slow
+        enough to notice landscapes, outdoor lives, and daily routines. I’m curious about how
+        people live with nature, how habits shape culture, and—most of all—about local food,
+        family recipes, and the stories people love to tell about them.
       </p>
 
-      <p class="hero-description">
-       Somewhere between stepping away from work-routine and a desire to keep moving, 
-       Expedition Nordakar took shape. I’m traveling from the Arctic north of Europe 
-       to the heart of West Africa, tracing how landscapes, cultures, and climates slowly transform.
-      </p>
-      
-      <p class="hero-description">
-       The journey is guided by two long-held ambitions: crossing a continent under my own power, and 
-       experiencing Africa at the same pace I experience Europe: slowly and attentively, embracing the 
-       local beauty close to the ground.
+      <p class="text">
+        I follow curiosity wherever it leads, even when that means crossing a continent.
       </p>
 
-      <p class="hero-description">
-        Along the way I observe how food, daily habits, and small choices shift as the climate changes: 
-        from cold northern coastlines to the desert roads near Africa’s western cape.
-      </p>
-
-      
-    </div>
-
-    <div class="hero-visual"></div>
-  </section>
-
-  <!-- Journey philosophy block -->
-  <section class="hero" style="padding-top: 0;">
-    <div class="hero-content">
-      <span class="hero-eyebrow">Expedition Nordakar</span>
-
-      <h1 class="hero-title">The Stages</h1>
-
-      <p class="hero-description">
-        The journey unfolds in stages: from the Nordic North, through the forests of the Baltics and 
-        Eastern Poland, into the mountains and cultures of the Balkans.
-      </p>
-      <p class="hero-description">
-        The road then curves along the Mediterranean and climbs across the Atlas Mountains.
-      </p>
-      <p class="hero-description">
-        From there, it stretches into the Sahara, on the long way to Dakar.
-      </p>
-      <p class="hero-description">
-        With every stage, the climate changes, the food evolves, and the rhythm of daily life shifts.
-      </p>
-    </div>
-
-    <div class="hero-visual"></div>
-  </section>
-
-  <!-- Journey CTAs -->
-  <div class="hero-buttons" style="justify-content: center; margin-top: 40px;">
-    <a
-      href="https://substack.com/@tomcarbon"
-      target="_blank"
-      rel="noopener"
-      class="cta"
-    >
-      Read along
-    </a>
-
-    <a
-      href="https://instagram.com/tomcarbon_"
-      target="_blank"
-      rel="noopener"
-      class="btn-secondary"
-    >
-      View the photos
-    </a>
-  </div>
-
-</section>
-
-<!-- ================= ABOUT ME ================= -->
-
-  <section class="cards" id="about">
-
-  <!-- Section opener -->
-    <div class="section-opener">
-    <img src="/logo/logo-16.png" alt="" aria-hidden="true" class="section-logo">
-    <h2>ABOUT ME</h2>
-  </div>
-
-  <!-- Main journey title -->
-
-  <!-- About block -->
-  <section class="hero" id="about">
-
-    <div class="hero-content">
-    <span class="hero-eyebrow">About</span>
-
-    <h1 class="hero-title">Tom Carbon</h1>
-
-    <p class="hero-description">
-      My name isn’t a statement, but it has become a reminder. I didn’t always think about climate impact. For a long time, 
-      I made the same choices many of us do: traveling fast, consuming freely, moving on. That began to change when I slowed down. 
-      </p>
-
-    <p class="hero-description">
-      Awareness came gradually: through reading, listening and meeting people along the way who live closely with their surroundings. 
-      People who don’t label their choices, but simply make them work. That’s where I began to see the quiet creativity in daily habits, 
-      food, travel, and adaptation.
-      </p>
-
-      <p class="hero-description">
-     Traveling slowly allows me to learn from those moments, and to share inspiration for alternatives that already exist yet only if we give 
-     ourselves the time to notice them.
-      </p>
-  
-  </div>
-
-  <div class="hero-visual">
-    <img
-    src="/assets/images/Tom_Carbon_side.png"
-    alt="Tom Carbon on the bike"
-    loading="lazy"
-    >
-</div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-  <div class="footer-grid">
-
-    <!-- Brand block -->
-    <div class="footer-brand">
-      <img src="/logo/logo-40.png" alt="Tom Carbon logo" class="footer-logo">
-      <div>
-        <strong>TOM CARBON</strong>
-        <p>Follow along via Substack or Instagram.</p>
+      <div class="button-row">
+        <a href="#journeys" class="cta">Journeys</a>
+        <a href="#about" class="btn-secondary">About me</a>
       </div>
     </div>
 
-    <!-- Explore -->
-    <div>
-      <strong>Explore</strong><br/>
-      <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">Stories</a><br/>
-      <a href="#journeys">Journeys</a><br/>
-      <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Photos</a>
+    <div class="visual">
+      <img src="/assets/images/Hero-image.jpg" alt="Tom Carbon">
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEYS -->
+<section class="section pt-0" id="journeys">
+  <div class="container">
+
+    <div class="section-opener">
+      <img src="/logo/logo-16.png" class="section-logo" alt="">
+      <h2>Current Journey</h2>
     </div>
 
-    <!-- Info -->
-    <div>
-      <strong>Info</strong><br/>
-      <a href="#about">About</a><br/>
-      <span style="opacity:0.5;">Contact</span>
+    <div class="split">
+      <div>
+        <span class="hero-eyebrow">From the Arctic to West Africa</span>
+        <h1>Expedition Nordakar</h1>
+        <p class="hero-deck">A long-distance bicycle journey across the continent.</p>
+
+        <p class="text">
+          Somewhere between stepping away from routine and a desire to keep moving,
+          Expedition Nordakar took shape.
+        </p>
+      </div>
     </div>
 
-    <!-- Connect -->
-    <div>
-      <strong>Connect</strong><br/>
-      <a href="https://substack.com/@tomcarbon" target="_blank" rel="noopener">Substack</a><br/>
-      <a href="https://www.instagram.com/tomcarbon_" target="_blank" rel="noopener">Instagram</a><br/>
-      <a href="https://www.youtube.com/@cyclingthom" target="_blank" rel="noopener">YouTube</a>
+    <div class="split pt-md">
+      <div>
+        <span class="hero-eyebrow">The Stages</span>
+
+        <p class="text">
+          From the Nordic North through the Baltics and Eastern Poland, into the Balkans.
+          Then along the Mediterranean, across the Atlas Mountains, and finally into the
+          Sahara on the way to Dakar.
+        </p>
+
+        <p class="text">
+          With every stage, the climate changes, the food evolves, and the rhythm of daily life shifts.
+        </p>
+      </div>
+    </div>
+
+    <div class="button-row centered">
+      <a href="https://substack.com/@tomcarbon" class="cta" target="_blank">Read along</a>
+      <a href="https://instagram.com/tomcarbon_" class="btn-secondary" target="_blank">View the photos</a>
     </div>
 
   </div>
-</footer>
+</section>
 
-<script>
-  function toggleMenu() {
-    document.getElementById("mainNav").classList.toggle("open");
-  }
-</script>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-opener">
+      <img src="/logo/logo-16.png" class="section-logo" alt="">
+      <h2>About Me</h2>
+    </div>
+
+    <div class="split">
+      <div>
+        <span class="hero-eyebrow">About</span>
+        <h1>Tom Carbon</h1>
+
+        <p class="text">
+          My name isn’t a statement, but it has become a reminder.
+        </p>
+
+        <p class="text">
+          Awareness came gradually—through reading, listening, and meeting people who live
+          closely with their surroundings.
+        </p>
+
+        <p class="text">
+          Traveling slowly allows me to notice alternatives that already exist.
+        </p>
+      </div>
+
+      <div class="visual">
+        <img src="/assets/images/Tom_Carbon_side.png" alt="">
+      </div>
+    </div>
+
+  </div>
+</section>
 
 </body>
-
 </html>
