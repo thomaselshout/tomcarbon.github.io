@@ -80,6 +80,30 @@
       align-items: center;
     }
 
+    .header-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header-socials a {
+      display: inline-flex;
+      opacity: 0.75;
+      transform: translateY(0);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .header-socials a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .header-socials img {
+      width: 18px;
+      height: 18px;
+    }
+
+
     .logo {
       display: flex;
       align-items: center;
@@ -90,25 +114,27 @@
 
     .logo-image { height: 22px; }
 
-    nav {
+    nav.main-nav {
       display: flex;
       gap: 32px;
     }
 
-    nav a {
+    nav.main-nav a {
       font-size: 14px;
       color: var(--text-muted);
     }
+    
 
-    .social {
-      display: flex;
-      gap: 16px;
+    @media (max-width: 900px) {
+      .header-inner {
+      padding: 16px var(--content-padding);
     }
 
-    .social img {
-      width: 18px;
-      opacity: 0.7;
+      .header-socials {
+      display: none;
     }
+  }
+
    
     /* ---------- Mobile / Tablet Navigation ---------- */
 
@@ -367,6 +393,16 @@
       <a href="#about">About</a>
       <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
     </nav>
+
+     <!-- Socials -->
+    <div class="header-socials">
+      <a href="https://www.instagram.com/tomcarbon_" target="_blank" aria-label="Instagram">
+      <img src="/assets/icons/instagram.png" alt="">
+      </a>
+      <a href="https://substack.com/@tomcarbon" target="_blank" aria-label="Substack">
+      <img src="/assets/icons/substack.png" alt="">
+      </a>
+    </div>
 
     <!-- Burger menu (mobile only) -->
     <button
