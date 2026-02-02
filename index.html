@@ -76,9 +76,10 @@ a {
 .site-header {
   position: sticky;
   top: 0;
+  z-index: 1000;
+
   background: var(--bg-light);
   border-bottom: 1px solid rgba(0,0,0,0.05);
-  z-index: 100;
 }
 
 .header-inner {
@@ -372,8 +373,7 @@ h1 {
 
 <body>
 
-<header>
- <header class="site-header">
+<header class="site-header">
   <div class="header-inner">
 
     <!-- Logo -->
@@ -408,8 +408,6 @@ h1 {
     </button>
 
   </div>
-</header>
-
 </header>
 
 <!-- INTRO -->
