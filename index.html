@@ -336,6 +336,7 @@ h1 {
     display: block;
   }
 
+ @media (max-width: 900px) {
   nav.main-nav {
     display: none;
     position: absolute;
@@ -348,6 +349,13 @@ h1 {
     padding: 32px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 150;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav.main-nav a {
+    font-size: 16px;
+    padding: 6px 0;
   }
 
   nav.main-nav.open {
