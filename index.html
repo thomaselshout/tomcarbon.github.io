@@ -257,6 +257,59 @@ h1 {
   height: 14px;
 }
 
+    /* ---------- Journeys images ---------- */
+
+.journeys-image,
+.stages-image {
+  margin-top: 56px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.journeys-image img,
+.stages-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---------- Stages threshold ---------- */
+
+.section-stages {
+  padding-top: 40px; /* slightly tighter than normal section */
+}
+
+.stages-inner {
+  max-width: 720px; /* keeps stages more editorial and focused */
+}
+
+.stages-divider {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.stages-divider span {
+  width: 80px;
+  height: 1px;
+  background: rgba(0,0,0,0.15);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .journeys-image,
+  .stages-image {
+    margin-top: 40px;
+  }
+
+  .stages-inner {
+    max-width: 100%;
+  }
+}
+
+    
 /* ---------- Footer ---------- */
 
 .site-footer {
