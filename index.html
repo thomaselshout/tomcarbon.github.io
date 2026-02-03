@@ -362,6 +362,12 @@ h1 {
   opacity: 0.9;
 }
 
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
@@ -651,10 +657,10 @@ h1 {
 
   </div>
 </section>
-<!-- ================= FOOTER ================= -->
 
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
-  <div class="container">
+  <div class="footer-inner">
     <div class="footer-grid">
 
       <!-- Brand block -->
@@ -692,6 +698,7 @@ h1 {
     </div>
   </div>
 </footer>
+
 <script>
   function toggleMenu() {
     document.getElementById("mainNav").classList.toggle("open");
