@@ -9,20 +9,27 @@
   <link rel="apple-touch-icon" href="/logo/logo-16.png">
 
   <!-- Fonts (merged) -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
  
 
 
   <style>
+    
+:root {
+  --font-display: 'Libre Baskerville', serif;
+ 
+}
+
+    
  :root {
   --bg-light: #F4EDE4;
   --bg-dark: #0E2433;
   --accent: #C39A6B;
   --text-dark: #0E2433;
   --text-muted: #6B7280;
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Libre Baskerville', serif;
+  --font-body: 'Inter', sans-serif;
   --radius-lg: 28px;
   --content-padding: 56px;
   --max-width: 1280px;
@@ -158,13 +165,14 @@ nav.main-nav a {
 /* ---------- Typography ---------- */
 
 h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(42px, 6vw, 64px);
-  font-weight: 400; /* lighter, more editorial */
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.01em;
   margin: 0 0 16px;
+  letter-spacing: -0.01em;
 }
+
 
 .intro-subtitle {
   font-weight: 500;
@@ -184,11 +192,9 @@ h1 {
 .hero-deck {
   font-family: var(--font-body);
   font-size: 18px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(0,0,0,0.65);
+  color: var(--text-muted);
+  margin-bottom: 24px;
   max-width: 520px;
-  margin-bottom: 32px;
 }
 
 .text {
@@ -257,13 +263,13 @@ h1 {
 
 .section-opener h2 {
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.55);
+  color: var(--text-muted);
   margin: 0;
 }
+
 
 .section-logo {
   height: 14px;
@@ -310,20 +316,21 @@ h1 {
 
 /* ---------- Responsive ---------- */
 
+/* ----- Mobile & tablet ----- */
 @media (max-width: 900px) {
   .journeys-image,
   .stages-image {
     margin-top: 40px;
   }
 
-  @media (min-width: 901px) {
-  .text.spaced {
-    margin-bottom: 48px;
-  }
-}
-
   .stages-inner {
     max-width: 100%;
+  }
+}
+/* ----- Desktop only ----- */
+@media (min-width: 901px) {
+  .text.spaced {
+    margin-bottom: 48px;
   }
 }
 
@@ -497,7 +504,7 @@ h1 {
       <p class="text">I travel slowly for food and adventure.</p>
 
       <p class="text">
-        The bicycle is my favorite way to get around. It’s just fast enough to go far, and slow
+        The bicycle is my favorite way to get around. It’s just fast enough to go far and slow
         enough to notice landscapes, outdoor lives and daily routines. I’m curious about how
         people live with nature, how habits shape culture and (most of all 😌) about local food,
         family recipes and the stories people love to tell about them.
@@ -548,7 +555,7 @@ h1 {
         </p>
 
         <p class="text spaced">
-          The journey is guided by two long-held ambitions: crossing a continent under my own power,
+          The journey is guided by two long-held ambitions: crossing a continent under my own power
           and experiencing Europe at a human pace: slowly, attentively and close to the ground: 
           where food, daily rhythms and local lives shape the road as much as distance does.
         </p>
