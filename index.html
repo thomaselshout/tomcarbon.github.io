@@ -249,6 +249,20 @@
     .text + .text { margin-top: 0.75em; }
     .text.spaced {}
 
+    .inline-link {
+      color: inherit; /* keeps it editorial, not blue */
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(14,36,51,0.4);
+      padding-bottom: 1px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: rgba(14,36,51,0.8);
+      color: var(--text-dark);
+}
+
+
     /* Keep longer Journeys copy readable while titles remain full-width */
     #journeys .text { max-width: 720px; }
 
@@ -516,10 +530,15 @@
       </p>
 
       <p class="text">
-        Over the years, I’ve followed that curiosity on smaller scales: crossing countries
-        by bike with friends, collecting stories with volunteers on a tandem across Asia and
-        riding through the Spanish Basque Country with my partner. Each time, the bike proved
-        to move at a pace that feels human, one that gives experiences time to settle.
+        Over the years, I’ve followed that curiosity on smaller scales: crossing countries by bike with friends,
+        <a href="https://1bike2stories.com/" target="_blank" rel="noopener" class="inline-link">
+        collecting stories with volunteers on a tandem across Asia
+        </a> and
+        <a href="https://www.youtube.com/watch?v=K-i5zijKBN4" target="_blank" rel="noopener" class="inline-link">
+        riding through the Spanish Basque Country
+      </a>
+        with my partner. Each time, the bike proved to move at a pace that feels human,
+        one that gives experiences time to settle.
       </p>
 
       <p class="text">
