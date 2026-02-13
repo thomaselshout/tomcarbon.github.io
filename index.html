@@ -9,493 +9,474 @@
   <link rel="apple-touch-icon" href="/logo/logo-16.png">
 
   <!-- Fonts (merged) -->
- <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
- 
-
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    
-:root {
-  --bg-light: #F4EDE4;
-  --bg-dark: #0E2433;
-  --accent: #C39A6B;
-
-  --text-dark: #0E2433;
-  --text-muted: #6B7280;
-
-  --font-display: 'Libre Baskerville', serif;
-  --font-body: 'Inter', sans-serif;
-
-  --radius-lg: 28px;
-  --content-padding: 56px;
-  --max-width: 1280px;
-}
-
-/* ---------- Base ---------- */
-
-* { box-sizing: border-box; }
-
-html, body { height: 100%; }
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  background: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
-
-a { color: inherit; text-decoration: none; }
-
-/* ---------- Layout primitives ---------- */
-
-.section { padding: 80px 0; }
-
-.section.pt-0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.section.pt-md { padding-top: 40px; }
-
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--content-padding);
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.centered { text-align: center; }
-
-/* ---------- Editorial headings (same font as body) ---------- */
-
-.heading-body {
-  font-family: var(--font-body); /* Inter */
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--text-dark);
-  margin: 48px 0 16px;
-}
-    
-/* ---------- Header ---------- */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg-light);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px var(--content-padding);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative; /* for mobile nav positioning */
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.logo img { height: 22px; display: block; }
-
-/* Navigation (desktop) */
-nav.main-nav {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-
-nav.main-nav a {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* Social icons (desktop only) */
-.header-socials {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.header-socials a {
-  display: inline-flex;
-  opacity: 0.75;
-  transform: translateY(0);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.header-socials a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.header-socials img {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
-
-/* Burger menu */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--text-dark);
-  z-index: 200;
-}
-
-/* ---------- Typography (Option A: coherent editorial system) ---------- */
-
-/* Main H1 (hero / key titles) */
-h1 {
-  font-family: var(--font-display);
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1.06;
-  margin: 0 0 14px;
-  letter-spacing: -0.02em;
-}
-
-/* Standard H2 (use for content headings) */
-h2 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.15;
-  margin: 0 0 14px;
-  letter-spacing: -0.01em;
-}
-
-/* Optional: smaller in-content heading (e.g. “Where this journey begins”) */
-.chapter-title {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1.2;
-  margin: 28px 0 12px;
-  letter-spacing: -0.01em;
-  color: var(--text-dark);
-}
-
-/* Intro subtitle (“Nice to meet you”) */
-.intro-subtitle {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--text-muted);
-  margin: 0 0 22px;
-}
-
-/* Eyebrow label (e.g., year / small label) */
-.hero-eyebrow {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 10px;
-  display: block;
-}
-
-/* Deck line under H1 */
-.hero-deck {
-  font-family: var(--font-body);
-  font-size: 20px;
-  font-weight: 400;
-  color: rgba(14,36,51,0.70);
-  margin: 0 0 22px;
-  max-width: none;
-}
-
-/* Body text */
-.text {
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: rgba(14,36,51,0.68);
-  max-width: 560px;
-}
-
-.text + .text { margin-top: 0.75em; }
-
-/* Optional: spacing helper (desktop only rule below) */
-.text.spaced {}
-
-/* ---------- Visual ---------- */
-
-.visual {
-  background: #E0D7CB;
-  border-radius: var(--radius-lg);
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-
-.visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ---------- Buttons ---------- */
-
-.button-row {
-  display: flex;
-  gap: 16px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-}
-
-.button-row.centered { justify-content: center; }
-
-.cta {
-  background: var(--accent);
-  color: white;
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  display: inline-block;
-}
-
-.btn-secondary {
-  background: rgba(0,0,0,0.06);
-  color: var(--text-dark);
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  display: inline-block;
-}
-
-/* ---------- Section opener (Journeys / About label + logo) ---------- */
-
-.section-opener {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
-}
-
-.section-opener h2 {
-  /* This is intentionally a small label style, not a “real” H2 headline */
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-.section-logo {
-  height: 14px;
-  width: auto;
-  display: block;
-}
-
-.section-subtitle {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 40px 0 16px;
-  color: var(--text-dark);
-}
-
-/* ---------- Journeys intro layout ---------- */
-
-.journeys-intro {
-  align-items: flex-start; /* top-align image with text */
-}
-
-.journeys-intro > div:first-child {
-  width: 100%;
-}
-
-.journeys-intro .hero-deck {
-  max-width: none;
-}
-
-.journeys-intro .text {
-  max-width: 720px;
-}
-.journeys-intro {
-  align-items: flex-start;
-}
-
-/* Push image down to align with paragraph start */
-.journeys-intro .visual {
-  margin-top: 92px; 
-}
-
-
-/* ---------- Stages threshold (if used) ---------- */
-
-.section-stages { padding-top: 40px; }
-
-.stages-inner { max-width: 720px; }
-
-.stages-divider {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 48px;
-}
-
-.stages-divider span {
-  width: 80px;
-  height: 1px;
-  background: rgba(0,0,0,0.15);
-}
-
-/* ---------- Footer ---------- */
-
-.site-footer {
-  background: var(--bg-dark);
-  color: white;
-  padding: 80px 0;
-  width: 100%;
-}
-
-.site-footer p {
-  color: rgba(255,255,255,0.7);
-  font-size: 14px;
-  margin: 0;
-}
-
-.site-footer strong {
-  display: inline-block;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: white;
-}
-
-.site-footer a {
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
-  text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.3);
-  text-underline-offset: 3px;
-  display: inline-block;
-  margin-bottom: 6px;
-}
-
-.site-footer a:hover {
-  color: white;
-  text-decoration-color: white;
-}
-
-.footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--content-padding);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-}
-
-.footer-brand {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.footer-logo {
-  width: 40px;
-  height: auto;
-  opacity: 0.9;
-  display: block;
-}
-
-.muted { opacity: 0.5; }
-
-/* ---------- Responsive: Mobile & tablet ---------- */
-
-@media (max-width: 900px) {
-  :root { --content-padding: 24px; }
-
-  .header-inner {
-    padding: 16px var(--content-padding);
-  }
-
-  .split {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  h1 {
-    font-size: 44px;
-    letter-spacing: -0.02em;
-  }
-
-  .header-socials { display: none; }
-
-  .menu-toggle { display: block; }
-
-  nav.main-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg-light);
-    flex-direction: column;
-    gap: 24px;
-    padding: 32px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    z-index: 150;
-    align-items: center;
-    text-align: center;
-  }
-
-  nav.main-nav a {
-    font-size: 16px;
-    padding: 6px 0;
-  }
-
-  nav.main-nav.open { display: flex; }
-
-  .journeys-image,
-  .stages-image {
-    margin-top: 40px;
-  }
-
-  .stages-inner { max-width: 100%; }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-/* ---------- Desktop-only tweaks ---------- */
-
-@media (min-width: 901px) {
-  .text.spaced { margin-bottom: 48px; }
-}
-
+    :root {
+      --bg-light: #F4EDE4;
+      --bg-dark: #0E2433;
+      --accent: #C39A6B;
+
+      --text-dark: #0E2433;
+      --text-muted: #6B7280;
+
+      --font-display: 'Libre Baskerville', serif;
+      --font-body: 'Inter', sans-serif;
+
+      --radius-lg: 28px;
+      --content-padding: 56px;
+      --max-width: 1280px;
+    }
+
+    /* ---------- Base ---------- */
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Layout primitives ---------- */
+
+    .section { padding: 80px 0; }
+
+    .section.pt-0 {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .section.pt-md { padding-top: 40px; }
+
+    /* Your HTML uses pb-0 in About */
+    .section.pb-0 { padding-bottom: 0; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .split.align-top { align-items: start; }
+
+    .centered { text-align: center; }
+
+    /* ---------- Editorial headings (same font as body) ---------- */
+
+    .heading-body {
+      font-family: var(--font-body); /* Inter */
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin: 48px 0 16px;
+    }
+
+    /* ---------- Header ---------- */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-light);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px var(--content-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative; /* for mobile nav positioning */
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .logo img { height: 22px; display: block; }
+
+    /* Navigation (desktop) */
+    nav.main-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav.main-nav a {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Social icons (desktop only) */
+    .header-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header-socials a {
+      display: inline-flex;
+      opacity: 0.75;
+      transform: translateY(0);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .header-socials a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .header-socials img {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* Burger menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-dark);
+      z-index: 200;
+    }
+
+    /* ---------- Typography (Option A: coherent editorial system) ---------- */
+
+    /* Main H1 (hero / key titles) */
+    h1 {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.06;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    /* Standard H2 (use for content headings) */
+    h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 0 0 14px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Optional: smaller in-content heading (e.g. “Where this journey begins”) */
+    .chapter-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 28px 0 12px;
+      letter-spacing: -0.01em;
+      color: var(--text-dark);
+    }
+
+    /* Intro subtitle (“Nice to meet you”) */
+    .intro-subtitle {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-muted);
+      margin: 0 0 22px;
+    }
+
+    /* Eyebrow label (e.g., year / small label) */
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Deck line under H1 */
+    .hero-deck {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(14,36,51,0.70);
+      margin: 0 0 22px;
+      max-width: none;
+    }
+
+    /* Body text */
+    .text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: rgba(14,36,51,0.68);
+      max-width: 560px;
+    }
+
+    .text + .text { margin-top: 0.75em; }
+
+    /* Optional: spacing helper (desktop only rule below) */
+    .text.spaced {}
+
+    /* ---------- Visual ---------- */
+
+    .visual {
+      background: #E0D7CB;
+      border-radius: var(--radius-lg);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Buttons ---------- */
+
+    .button-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .button-row.centered { justify-content: center; }
+
+    .cta {
+      background: var(--accent);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background: rgba(0,0,0,0.06);
+      color: var(--text-dark);
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* ---------- Section opener (Journeys / About label + logo) ---------- */
+
+    .section-opener {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .section-opener h2 {
+      /* This is intentionally a small label style, not a “real” H2 headline */
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .section-logo {
+      height: 14px;
+      width: auto;
+      display: block;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 40px 0 16px;
+      color: var(--text-dark);
+    }
+
+    /* ---------- Journeys intro (STRUCTURAL: full-width head + split body) ---------- */
+
+    .journeys-head {
+      margin-bottom: 28px;
+    }
+
+    .journeys-body {
+      align-items: start; /* top align image with body text start */
+    }
+
+    /* Keep copy comfortably readable while H1 stays full-width */
+    .journeys-body .text {
+      max-width: 720px;
+    }
+
+    /* ---------- Stages threshold (if used) ---------- */
+
+    .section-stages { padding-top: 40px; }
+
+    .stages-inner { max-width: 720px; }
+
+    .stages-divider {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .stages-divider span {
+      width: 80px;
+      height: 1px;
+      background: rgba(0,0,0,0.15);
+    }
+
+    /* ---------- Footer ---------- */
+
+    .site-footer {
+      background: var(--bg-dark);
+      color: white;
+      padding: 80px 0;
+      width: 100%;
+    }
+
+    .site-footer p {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .site-footer strong {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: white;
+    }
+
+    .site-footer a {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.3);
+      text-underline-offset: 3px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .site-footer a:hover {
+      color: white;
+      text-decoration-color: white;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .footer-logo {
+      width: 40px;
+      height: auto;
+      opacity: 0.9;
+      display: block;
+    }
+
+    .muted { opacity: 0.5; }
+
+    /* ---------- Responsive: Mobile & tablet ---------- */
+
+    @media (max-width: 900px) {
+      :root { --content-padding: 24px; }
+
+      .header-inner {
+        padding: 16px var(--content-padding);
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      h1 {
+        font-size: 44px;
+        letter-spacing: -0.02em;
+      }
+
+      .header-socials { display: none; }
+
+      .menu-toggle { display: block; }
+
+      nav.main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-light);
+        flex-direction: column;
+        gap: 24px;
+        padding: 32px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        z-index: 150;
+        align-items: center;
+        text-align: center;
+      }
+
+      nav.main-nav a {
+        font-size: 16px;
+        padding: 6px 0;
+      }
+
+      nav.main-nav.open { display: flex; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ---------- Desktop-only tweaks ---------- */
+
+    @media (min-width: 901px) {
+      .text.spaced { margin-bottom: 48px; }
+    }
   </style>
 </head>
 
@@ -516,22 +497,18 @@ h2 {
       <a href="https://substack.com/@tomcarbon" target="_blank">Stories</a>
     </nav>
 
-     <!-- Socials -->
+    <!-- Socials -->
     <div class="header-socials">
       <a href="https://www.instagram.com/tomcarbon_" target="_blank" aria-label="Instagram">
-      <img src="/assets/icons/instagram.png" alt="">
+        <img src="/assets/icons/instagram.png" alt="">
       </a>
       <a href="https://substack.com/@tomcarbon" target="_blank" aria-label="Substack">
-      <img src="/assets/icons/substack.png" alt="">
+        <img src="/assets/icons/substack.png" alt="">
       </a>
     </div>
 
     <!-- Burger menu (mobile only) -->
-    <button
-      class="menu-toggle"
-      aria-label="Open menu"
-      onclick="toggleMenu()"
-    >
+    <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">
       ☰
     </button>
 
@@ -557,15 +534,15 @@ h2 {
       </p>
 
       <p class="text">
-        Over the years, I’ve followed that curiosity on smaller scales: crossing countries 
-        by bike with friends, collecting stories with volunteers on a tandem across Asia and 
-        riding through the Spanish Basque Country with my partner. Each time, the bike proved 
+        Over the years, I’ve followed that curiosity on smaller scales: crossing countries
+        by bike with friends, collecting stories with volunteers on a tandem across Asia and
+        riding through the Spanish Basque Country with my partner. Each time, the bike proved
         to move at a pace that feels human, one that gives experiences time to settle.
       </p>
 
       <p class="text">
-        After years of squeezing adventures into short holidays, I finally gave myself a little 
-        more time. I'm using a half year sabbatical to slow things down and follow my curiosity 
+        After years of squeezing adventures into short holidays, I finally gave myself a little
+        more time. I'm using a half year sabbatical to slow things down and follow my curiosity
         across the continent.
       </p>
 
@@ -591,65 +568,72 @@ h2 {
       <h2>Journeys</h2>
     </div>
 
-    <!-- ================= JOURNEYS INTRO ================= -->
-    <div class="split journeys-intro">
+    <!-- ================= JOURNEYS INTRO (STRUCTURAL FIX) ================= -->
+    <div class="journeys-intro">
 
-      <!-- Text -->
-      <div>
+      <!-- Full-width title area -->
+      <div class="journeys-head">
         <span class="hero-eyebrow">June 2026</span>
         <h1>Grand Camp d’Europe</h1>
 
         <p class="hero-deck">
           A long-distance bicycle journey under the European stars.
         </p>
-
-        <!-- PART 1: CONTEXT -->
-  <span class="hero-eyebrow">Where it started</span>
-
-  <p class="text">
-    I’m from the Netherlands, where finding a place to live has become a surprisingly complicated
-    exercise. Not because we’re aiming high, but because wanting a bit of nature and some breathing
-    room has somehow become a challenge.
-  </p>
-
-  <p class="text">
-    Our wishes are fairly uncomplicated. Shelter, fresh air and people who like being outdoors.
-    Yet those simple needs feel increasingly rare. This sparked my curiosity about how others
-    across Europe deal with the same question.
-  </p>
-        <br></br>
-
-  <!-- PART 2: CONCEPT -->
-   <span class="hero-eyebrow">The concept</span>
-
-  <p class="text">
-    In Grand Camp d’Europe, I imagine the continent as one extended campsite. A place where forests, 
-    fields and mountains become temporary homes and where each night offers a new way of balancing 
-    comfort and connection.
-  </p>
-
-  <p class="text">
-    To explore that idea, I travel by bicycle, with a small tent and no fixed endpoint, moving slowly 
-    from the far north of Europe toward its warmer edges. The bike gives me access to places you don’t 
-    often pass through by accident while camping keeps me close to the ground.
-  </p>
-        
-  <p class="text">
-    Under the European stars, the journey becomes less about distance and more about how we live with nature. 
-    Measured in nights rather than kilometres, I follow the people and places that still make room for a life 
-    outdoors.
-  </p>
       </div>
 
-      <!-- Image 1 -->
-      <div class="visual">
-        <img
-          src="/assets/images/Nordakar.jpg"
-          alt="Cape2Cape Europe"
-          loading="lazy"
-        >
-      </div>
+      <!-- Two-column body area -->
+      <div class="split journeys-body">
 
+        <!-- Text -->
+        <div>
+          <!-- PART 1: CONTEXT -->
+          <span class="hero-eyebrow">Where it started</span>
+
+          <p class="text">
+            I’m from the Netherlands, where finding a place to live has become a surprisingly complicated
+            exercise. Not because we’re aiming high, but because wanting a bit of nature and some breathing
+            room has somehow become a challenge.
+          </p>
+
+          <p class="text">
+            Our wishes are fairly uncomplicated. Shelter, fresh air and people who like being outdoors.
+            Yet those simple needs feel increasingly rare. This sparked my curiosity about how others
+            across Europe deal with the same question.
+          </p>
+          <br>
+
+          <!-- PART 2: CONCEPT -->
+          <span class="hero-eyebrow">The concept</span>
+
+          <p class="text">
+            In Grand Camp d’Europe, I imagine the continent as one extended campsite. A place where forests,
+            fields and mountains become temporary homes and where each night offers a new way of balancing
+            comfort and connection.
+          </p>
+
+          <p class="text">
+            To explore that idea, I travel by bicycle, with a small tent and no fixed endpoint, moving slowly
+            from the far north of Europe toward its warmer edges. The bike gives me access to places you don’t
+            often pass through by accident while camping keeps me close to the ground.
+          </p>
+
+          <p class="text">
+            Under the European stars, the journey becomes less about distance and more about how we live with nature.
+            Measured in nights rather than kilometres, I follow the people and places that still make room for a life
+            outdoors.
+          </p>
+        </div>
+
+        <!-- Image 1 -->
+        <div class="visual">
+          <img
+            src="/assets/images/Nordakar.jpg"
+            alt="Cape2Cape Europe"
+            loading="lazy"
+          >
+        </div>
+
+      </div>
     </div>
 
     <!-- ================= STAGES ================= -->
@@ -664,15 +648,15 @@ h2 {
         </p>
 
         <p class="text">
-          The journey begins in the Arctic north of Europe, where summer light stretches the days and nature sets the rhythm. From there, 
+          The journey begins in the Arctic north of Europe, where summer light stretches the days and nature sets the rhythm. From there,
           the route moves south through the forests of the Baltic states and eastern Poland.
         </p>
- 
+
         <p class="text">
-          Rather than following a fixed route or endpoint, the later stages are guided by people, weather, and the simple question of where it 
+          Rather than following a fixed route or endpoint, the later stages are guided by people, weather, and the simple question of where it
           still feels right to sleep outside. One of Europe’s southern edges will mark the finish, chosen along the way.
         </p>
-        
+
         <div class="button-row">
           <a href="https://substack.com/@tomcarbon" target="_blank" class="cta">
             Follow the journey
