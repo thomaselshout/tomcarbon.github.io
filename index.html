@@ -322,31 +322,24 @@ h2 {
   color: var(--text-dark);
 }
 
-/* ---------- Journeys images wrappers (if used) ---------- */
+/* ---------- Journeys intro layout ---------- */
 
-.journeys-intro .text {
-  max-width: 640px; 
+.journeys-intro {
+  align-items: flex-start; /* top-align image with text */
 }
 
 .journeys-intro > div:first-child {
   width: 100%;
 }
 
-    
-.journeys-image,
-.stages-image {
-  margin-top: 56px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.journeys-intro .hero-deck {
+  max-width: none;
 }
 
-.journeys-image img,
-.stages-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.journeys-intro .text {
+  max-width: 640px;
 }
+
 
 /* ---------- Stages threshold (if used) ---------- */
 
