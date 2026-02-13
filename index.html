@@ -31,7 +31,6 @@
     /* ---------- Base ---------- */
 
     * { box-sizing: border-box; }
-
     html, body { height: 100%; }
 
     body {
@@ -75,10 +74,27 @@
 
     .centered { text-align: center; }
 
+    /* ---------- Scalable structural pattern ---------- */
+    .block-head {
+      max-width: var(--max-width);
+      margin: 0 auto 28px;
+      padding: 0 var(--content-padding);
+    }
+
+    .block-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+
+    .block-body.split {
+      align-items: start; /* top-align image with first line of content */
+    }
+
     /* ---------- Editorial headings (same font as body) ---------- */
 
     .heading-body {
-      font-family: var(--font-body); /* Inter */
+      font-family: var(--font-body);
       font-size: 20px;
       font-weight: 500;
       line-height: 1.3;
@@ -165,9 +181,8 @@
       z-index: 200;
     }
 
-    /* ---------- Typography (Option A: coherent editorial system) ---------- */
+    /* ---------- Typography ---------- */
 
-    /* Main H1 (hero / key titles) */
     h1 {
       font-family: var(--font-display);
       font-size: 64px;
@@ -177,7 +192,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Standard H2 (use for content headings) */
     h2 {
       font-family: var(--font-display);
       font-size: 28px;
@@ -187,7 +201,6 @@
       letter-spacing: -0.01em;
     }
 
-    /* Optional: smaller in-content heading (e.g. “Where this journey begins”) */
     .chapter-title {
       font-family: var(--font-display);
       font-size: 22px;
@@ -198,7 +211,6 @@
       color: var(--text-dark);
     }
 
-    /* Intro subtitle (“Nice to meet you”) */
     .intro-subtitle {
       font-family: var(--font-body);
       font-weight: 600;
@@ -207,7 +219,6 @@
       margin: 0 0 22px;
     }
 
-    /* Eyebrow label (e.g., year / small label) */
     .hero-eyebrow {
       font-family: var(--font-body);
       font-size: 12px;
@@ -219,7 +230,6 @@
       display: block;
     }
 
-    /* Deck line under H1 */
     .hero-deck {
       font-family: var(--font-body);
       font-size: 20px;
@@ -229,7 +239,6 @@
       max-width: none;
     }
 
-    /* Body text */
     .text {
       font-family: var(--font-body);
       font-size: 16px;
@@ -238,9 +247,10 @@
     }
 
     .text + .text { margin-top: 0.75em; }
-
-    /* Optional: spacing helper (desktop only rule below) */
     .text.spaced {}
+
+    /* Keep longer Journeys copy readable while titles remain full-width */
+    #journeys .text { max-width: 720px; }
 
     /* ---------- Visual ---------- */
 
@@ -289,7 +299,7 @@
       display: inline-block;
     }
 
-    /* ---------- Section opener (Journeys / About label + logo) ---------- */
+    /* ---------- Section opener ---------- */
 
     .section-opener {
       display: flex;
@@ -300,7 +310,6 @@
     }
 
     .section-opener h2 {
-      /* This is intentionally a small label style, not a “real” H2 headline */
       font-family: var(--font-body);
       font-size: 12px;
       font-weight: 600;
@@ -321,39 +330,6 @@
       font-weight: 600;
       margin: 40px 0 16px;
       color: var(--text-dark);
-    }
-
-    /* ---------- Journeys intro (STRUCTURAL: full-width head + split body) ---------- */
-
-    .journeys-head {
-      margin-bottom: 28px;
-    }
-
-    .journeys-body {
-      align-items: start; /* top align image with body text start */
-    }
-
-    /* Keep copy comfortably readable while H1 stays full-width */
-    .journeys-body .text {
-      max-width: 720px;
-    }
-
-    /* ---------- Stages threshold (if used) ---------- */
-
-    .section-stages { padding-top: 40px; }
-
-    .stages-inner { max-width: 720px; }
-
-    .stages-divider {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
-
-    .stages-divider span {
-      width: 80px;
-      height: 1px;
-      background: rgba(0,0,0,0.15);
     }
 
     /* ---------- Footer ---------- */
@@ -420,7 +396,7 @@
 
     .muted { opacity: 0.5; }
 
-    /* ---------- Responsive: Mobile & tablet ---------- */
+    /* ---------- Responsive ---------- */
 
     @media (max-width: 900px) {
       :root { --content-padding: 24px; }
@@ -440,7 +416,6 @@
       }
 
       .header-socials { display: none; }
-
       .menu-toggle { display: block; }
 
       nav.main-nav {
@@ -470,9 +445,13 @@
         grid-template-columns: 1fr;
         gap: 32px;
       }
-    }
 
-    /* ---------- Desktop-only tweaks ---------- */
+      /* Block pattern uses same padding as container on mobile */
+      .block-head,
+      .block-body {
+        padding: 0 var(--content-padding);
+      }
+    }
 
     @media (min-width: 901px) {
       .text.spaced { margin-bottom: 48px; }
@@ -515,13 +494,16 @@
   </div>
 </header>
 
-<!-- INTRO -->
+<!-- INTRO (STRUCTURAL PATTERN APPLIED) -->
 <section class="section" id="intro">
-  <div class="container split">
-    <div>
-      <h1>Hello, I’m Tom 👋</h1>
-      <p class="intro-subtitle">Nice to meet you!</p>
 
+  <div class="block-head">
+    <h1>Hello, I’m Tom 👋</h1>
+    <p class="intro-subtitle">Nice to meet you!</p>
+  </div>
+
+  <div class="block-body split">
+    <div>
       <p class="text">
         I travel slowly for food and outdoor adventures.
       </p>
@@ -556,183 +538,180 @@
       <img src="/assets/images/Hero-image4.jpg" alt="Tom Carbon">
     </div>
   </div>
+
 </section>
 
 <!-- ================= JOURNEYS ================= -->
-
 <section class="section" id="journeys">
-  <div class="container">
 
+  <div class="container">
     <div class="section-opener">
       <img src="/logo/logo-16.png" class="section-logo" alt="">
       <h2>Journeys</h2>
     </div>
-
-    <!-- ================= JOURNEYS INTRO (STRUCTURAL FIX) ================= -->
-    <div class="journeys-intro">
-
-      <!-- Full-width title area -->
-      <div class="journeys-head">
-        <span class="hero-eyebrow">June 2026</span>
-        <h1>Grand Camp d’Europe</h1>
-
-        <p class="hero-deck">
-          A long-distance bicycle journey under the European stars.
-        </p>
-      </div>
-
-      <!-- Two-column body area -->
-      <div class="split journeys-body">
-
-        <!-- Text -->
-        <div>
-          <!-- PART 1: CONTEXT -->
-          <span class="hero-eyebrow">Where it started</span>
-
-          <p class="text">
-            I’m from the Netherlands, where finding a place to live has become a surprisingly complicated
-            exercise. Not because we’re aiming high, but because wanting a bit of nature and some breathing
-            room has somehow become a challenge.
-          </p>
-
-          <p class="text">
-            Our wishes are fairly uncomplicated. Shelter, fresh air and people who like being outdoors.
-            Yet those simple needs feel increasingly rare. This sparked my curiosity about how others
-            across Europe deal with the same question.
-          </p>
-          <br>
-
-          <!-- PART 2: CONCEPT -->
-          <span class="hero-eyebrow">The concept</span>
-
-          <p class="text">
-            In Grand Camp d’Europe, I imagine the continent as one extended campsite. A place where forests,
-            fields and mountains become temporary homes and where each night offers a new way of balancing
-            comfort and connection.
-          </p>
-
-          <p class="text">
-            To explore that idea, I travel by bicycle, with a small tent and no fixed endpoint, moving slowly
-            from the far north of Europe toward its warmer edges. The bike gives me access to places you don’t
-            often pass through by accident while camping keeps me close to the ground.
-          </p>
-
-          <p class="text">
-            Under the European stars, the journey becomes less about distance and more about how we live with nature.
-            Measured in nights rather than kilometres, I follow the people and places that still make room for a life
-            outdoors.
-          </p>
-        </div>
-
-        <!-- Image 1 -->
-        <div class="visual">
-          <img
-            src="/assets/images/Nordakar.jpg"
-            alt="Cape2Cape Europe"
-            loading="lazy"
-          >
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ================= STAGES ================= -->
-    <div class="split journeys-stages section pt-md">
-
-      <!-- LEFT COLUMN -->
-      <div>
-        <span class="hero-eyebrow">The Stages</span>
-
-        <p class="text">
-          The journey unfolds in stages, not as a strict route but as a gradual transition of landscapes, seasons and ways of living.
-        </p>
-
-        <p class="text">
-          The journey begins in the Arctic north of Europe, where summer light stretches the days and nature sets the rhythm. From there,
-          the route moves south through the forests of the Baltic states and eastern Poland.
-        </p>
-
-        <p class="text">
-          Rather than following a fixed route or endpoint, the later stages are guided by people, weather, and the simple question of where it
-          still feels right to sleep outside. One of Europe’s southern edges will mark the finish, chosen along the way.
-        </p>
-
-        <div class="button-row">
-          <a href="https://substack.com/@tomcarbon" target="_blank" class="cta">
-            Follow the journey
-          </a>
-          <a href="https://www.instagram.com/tomcarbon_" target="_blank" class="btn-secondary">
-            View the photos
-          </a>
-        </div>
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="visual">
-        <img
-          src="/assets/images/Cape2cape.jpg"
-          alt="Nordakar global route"
-          loading="lazy"
-        >
-      </div>
-
-    </div>
-
   </div>
+
+  <!-- JOURNEYS INTRO (already on new structural pattern) -->
+  <div class="block-head">
+    <span class="hero-eyebrow">June 2026</span>
+    <h1>Grand Camp d’Europe</h1>
+
+    <p class="hero-deck">
+      A long-distance bicycle journey under the European stars.
+    </p>
+  </div>
+
+  <div class="block-body split">
+    <!-- Text -->
+    <div>
+      <!-- PART 1: CONTEXT -->
+      <span class="hero-eyebrow">Where it started</span>
+
+      <p class="text">
+        I’m from the Netherlands, where finding a place to live has become a surprisingly complicated
+        exercise. Not because we’re aiming high, but because wanting a bit of nature and some breathing
+        room has somehow become a challenge.
+      </p>
+
+      <p class="text">
+        Our wishes are fairly uncomplicated. Shelter, fresh air and people who like being outdoors.
+        Yet those simple needs feel increasingly rare. This sparked my curiosity about how others
+        across Europe deal with the same question.
+      </p>
+      <br>
+
+      <!-- PART 2: CONCEPT -->
+      <span class="hero-eyebrow">The concept</span>
+
+      <p class="text">
+        In Grand Camp d’Europe, I imagine the continent as one extended campsite. A place where forests,
+        fields and mountains become temporary homes and where each night offers a new way of balancing
+        comfort and connection.
+      </p>
+
+      <p class="text">
+        To explore that idea, I travel by bicycle, with a small tent and no fixed endpoint, moving slowly
+        from the far north of Europe toward its warmer edges. The bike gives me access to places you don’t
+        often pass through by accident while camping keeps me close to the ground.
+      </p>
+
+      <p class="text">
+        Under the European stars, the journey becomes less about distance and more about how we live with nature.
+        Measured in nights rather than kilometres, I follow the people and places that still make room for a life
+        outdoors.
+      </p>
+    </div>
+
+    <!-- Image 1 -->
+    <div class="visual">
+      <img
+        src="/assets/images/Nordakar.jpg"
+        alt="Cape2Cape Europe"
+        loading="lazy"
+      >
+    </div>
+  </div>
+
+  <!-- STAGES (STRUCTURAL PATTERN APPLIED) -->
+  <div class="block-head" style="margin-top: 56px;">
+    <span class="hero-eyebrow">The Stages</span>
+  </div>
+
+  <div class="block-body split">
+    <!-- LEFT COLUMN -->
+    <div>
+      <p class="text">
+        The journey unfolds in stages, not as a strict route but as a gradual transition of landscapes, seasons and ways of living.
+      </p>
+
+      <p class="text">
+        The journey begins in the Arctic north of Europe, where summer light stretches the days and nature sets the rhythm. From there,
+        the route moves south through the forests of the Baltic states and eastern Poland.
+      </p>
+
+      <p class="text">
+        Rather than following a fixed route or endpoint, the later stages are guided by people, weather, and the simple question of where it
+        still feels right to sleep outside. One of Europe’s southern edges will mark the finish, chosen along the way.
+      </p>
+
+      <div class="button-row">
+        <a href="https://substack.com/@tomcarbon" target="_blank" class="cta">
+          Follow the journey
+        </a>
+        <a href="https://www.instagram.com/tomcarbon_" target="_blank" class="btn-secondary">
+          View the photos
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="visual">
+      <img
+        src="/assets/images/Cape2cape.jpg"
+        alt="Nordakar global route"
+        loading="lazy"
+      >
+    </div>
+  </div>
+
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT (STRUCTURAL PATTERN APPLIED) -->
 <section class="section pb-0" id="about">
-  <div class="container">
 
+  <div class="container">
     <div class="section-opener">
       <img src="/logo/logo-16.png" class="section-logo" alt="">
       <h2>About Me</h2>
     </div>
+  </div>
 
-    <div class="split">
-      <div>
-        <span class="hero-eyebrow">About</span>
-        <h1 class="hero-title">Tom Carbon</h1>
+  <div class="block-head">
+    <span class="hero-eyebrow">About</span>
+    <h1>Tom Carbon</h1>
+  </div>
 
-        <p class="hero-description">
-          Tom has always been my nickname. Short. Catchy. Easy.
-          Much like my personality. Entertaining people, sharing stories
-          and chasing good moments came just as naturally.
-        </p>
+  <div class="block-body split">
+    <div>
+      <p class="text">
+        Tom has always been my nickname. Short. Catchy. Easy.
+        Much like my personality. Entertaining people, sharing stories
+        and chasing good moments came just as naturally.
+      </p>
 
-        <p class="hero-description">
-          Carbon arrived later. Literally.
-        </p>
+      <p class="text">
+        Carbon arrived later. Literally.
+      </p>
 
-        <p class="hero-description">
-          For a long time, I made the same choices many of us do: traveling fast,
-          consuming freely, moving on. That began to change when I slowed down
-          and started paying attention.
-        </p>
+      <p class="text">
+        For a long time, I made the same choices many of us do: traveling fast,
+        consuming freely, moving on. That began to change when I slowed down
+        and started paying attention.
+      </p>
 
-        <p class="hero-description">
-          That pause reshaped how I look at the world. Not overnight, but through
-          meeting people who live closely with nature, cook with what’s around them
-          and make thoughtful choices without calling it a philosophy.
-          That’s where I discovered how much creativity lives in everyday habits.
-          In food, travel and in the way we adapt.
-        </p>
+      <p class="text">
+        That pause reshaped how I look at the world. Not overnight, but through
+        meeting people who live closely with nature, cook with what’s around them
+        and make thoughtful choices without calling it a philosophy.
+        That’s where I discovered how much creativity lives in everyday habits.
+        In food, travel and in the way we adapt.
+      </p>
 
-        <p class="hero-description">
-          Today, I’m still chasing the same joys: great meals, wild landscapes,
-          inspiring outdoor lives. Just with a more conscious lens.
-          Less rush, more curiosity. A personal challenge to travel low-impact;
-          and still very much, 100% Tom Carbon.
-        </p>
-      </div>
+      <p class="text">
+        Today, I’m still chasing the same joys: great meals, wild landscapes,
+        inspiring outdoor lives. Just with a more conscious lens.
+        Less rush, more curiosity. A personal challenge to travel low-impact;
+        and still very much, 100% Tom Carbon.
+      </p>
 
-      <div class="visual">
-        <img src="/assets/images/Tom_Carbon_side.png" alt="">
-      </div>
+      <br>
     </div>
 
+    <div class="visual">
+      <img src="/assets/images/Tom_Carbon_side.png" alt="">
+    </div>
   </div>
+
 </section>
 
 <!-- ================= FOOTER ================= -->
@@ -781,5 +760,6 @@
     document.getElementById("mainNav").classList.toggle("open");
   }
 </script>
+
 </body>
 </html>
